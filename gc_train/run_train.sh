@@ -1,0 +1,24 @@
+mpiexec -n 1 python main.py \
+--log_interval 100 \
+--batch_size 8 \
+--lr 5e-5 \
+--exp_name /Data/GaussianCube_data/output/shapenet_diffusion_training \
+--save_interval 50000 \
+--config configs/shapenet_uncond.yml \
+--use_tensorboard \
+--use_vgg \
+--load_camera 1 \
+--render_l1_weight 10 \
+--render_lpips_weight 10 \
+--use_fp16 \
+--data_dir /Data/GaussianCube_data/output_gaussiancube/volume_act \
+--cam_root_path /Data/GaussianCube_data/blender_preprocessed \
+--txt_file /Data/GaussianCube_data/blender_preprocessed/shapenet_airplane.txt \
+--bound 0.45 \
+--start_idx 0 \
+--end_idx 2100 \
+--clip_input \
+--mean_file /Data/GaussianCube_data/mean_volume_act.pt \
+--std_file /Data/GaussianCube_data/std_volume_act.pt \
+--ckpt /Data/GaussianCube_data/output/shapenet_diffusion_training/checkpoints/model1485000.pt \
+--resume_checkpoint /Data/GaussianCube_data/output/shapenet_diffusion_training/checkpoints/model1485000.pt
